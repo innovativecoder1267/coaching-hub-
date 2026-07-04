@@ -16,6 +16,7 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/supabase.client'
 
 export default function Dashboard() {
+    const supabase=createClient();
     const [count,setcount]=useState<number|null>(null)
     const [pendingfee,setpendingfee]=useState<any|null>(null)
     const [attendancepercentage,setattendancepercentage]=useState<number|null>(null)
