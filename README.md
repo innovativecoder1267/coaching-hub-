@@ -1,83 +1,36 @@
-# Coaching Hub
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Coaching Hub is a full-stack coaching management platform built to simplify the daily operations of coaching institutes. It replaces manual record-keeping with a centralized system for managing students, attendance, fee tracking, and schedules.
+## Getting Started
 
-## Features
-
-* Student Management
-* Attendance Tracking
-* Fee Management
-* Dashboard & Analytics
-* Secure Authentication
-* Responsive User Interface
-
-## Tech Stack
-
-**Frontend**
-
-* Next.js
-* TypeScript
-* Tailwind CSS
-
-**Backend**
-
-* Next.js API Routes
-* MongoDB
-
-**Authentication**
-
-* Supabase
-
-## Why I Built This
-
-Many coaching institutes still rely on notebooks, spreadsheets, or multiple applications to manage student information and daily operations. Coaching Hub was built to provide a centralized platform that simplifies administration, improves organization, and reduces manual effort.
-
-## Core Modules
-
-* Student Management
-* Attendance Management
-* Fee Management
-* Dashboard
-* Authentication
-
-## Future Improvements
-
-* Teacher Management
-* Parent Portal
-* Notifications & Reminders
-* Reports & Export
-* Advanced Analytics
-* Role-Based Access Control (RBAC)
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone <repository-url>
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Create a `.env` file and configure the required environment variables.
-
-Start the development server:
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Learning Outcomes
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project helped me strengthen my understanding of full-stack application development, authentication, database design, and building software focused on solving real-world business problems.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## 📖 Learning Outcome
+To learn more about Next.js, take a look at the following resources:
 
-This project helped me gain practical experience in building production-style full-stack applications, designing scalable data models, implementing authentication, and developing software focused on solving real-world business problems.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
