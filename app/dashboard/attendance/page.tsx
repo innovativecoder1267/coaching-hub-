@@ -103,7 +103,7 @@ export default function Attendance() {
         </div>
 
         <div className="space-y-3">
-          {fulldata.map((record) => (
+          {fulldata.map((record:any) => (
             <div
               key={record.id}
               className="flex items-center justify-between p-4 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
