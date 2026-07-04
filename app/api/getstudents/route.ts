@@ -1,7 +1,8 @@
-import supabase from "@/lib/supabase/supabase.client";
+import { createClient } from "@/lib/supabase/supabase.client";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+    const supabase=createClient()
     const { data,error}=await supabase.from("student").select("*");
     if(error){
         console.log("SUPABASE ERROR:", error);
