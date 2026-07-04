@@ -1,6 +1,7 @@
-import supabase from "@/lib/supabase/supabase.client";
+import { createClient } from "@/lib/supabase/supabase.client";
 
 export async function POST(req: Request) {
+  const supabase=createClient()
   const { name, email,rollno,subject,studentclass,monthlyFee,admin } = await req.json();
   console.log("Email is",email,name,rollno,subject,studentclass,monthlyFee,admin);
   console.log("REQ RECEIVED");
