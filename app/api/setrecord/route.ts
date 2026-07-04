@@ -1,5 +1,6 @@
-import supabase from "@/lib/supabase/supabase.client";
+import { createClient } from "@/lib/supabase/supabase.client"
 export async function POST(req:Request){
+    const supabase=createClient();
     try {
         const { student,amount,status,paymentMethod}=await req.json()
         const {data,error}=await supabase.from("payments").insert({
