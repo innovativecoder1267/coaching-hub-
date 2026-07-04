@@ -16,12 +16,12 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/supabase.client'
 
 export default function Dashboard() {
-    const supabase=createClient();
+  const supabase=createClient()
     const [count,setcount]=useState<number|null>(null)
     const [pendingfee,setpendingfee]=useState<any|null>(null)
     const [attendancepercentage,setattendancepercentage]=useState<number|null>(null)
     const [attendancedata,setattendancedata]=useState<any[]>([])
-    const [activity,setactivities]=useState<any[]>([])
+    const [activity,setactivities]=useState<any[]|null>(null)
     const [showview,setshowview]=useState(false)
     const [scehduleclass,setscheduleclass]=useState({
       title:"",
@@ -192,7 +192,7 @@ export default function Dashboard() {
               </button>
             </div>
             <div className="space-y-4">
-              {activity.map((activity, index) => (
+              {activity?.map((activity, index) => (
                 <ActivityItem
                   key={index}
                   title={activity.action}
@@ -218,7 +218,7 @@ export default function Dashboard() {
                 </button>
               </div>
               <div className="space-y-4 max-h-[400px] overflow-y-auto">
-                {activity.map((activity, index) => (
+                {activity?.map((activity, index) => (
                   <ActivityItem
                     key={index}
                     title={activity.action}
