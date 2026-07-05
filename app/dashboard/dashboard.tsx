@@ -99,13 +99,13 @@ export default function Dashboard() {
       }
       const currentmonth=new Date().getMonth()
       const currentyear=new Date().getFullYear()
-      const totaldays=data?.filter((record:any)=>{
+      const totaldays:any=data?.filter((record:any)=>{
         const recordDate=new Date(record.date)
         return recordDate.getMonth() === currentmonth && recordDate.getFullYear() === currentyear
       }).length
 
-      const presentdays = data?.filter((record) => {
-      const recordDate = new Date(record.date);
+      const presentdays:any|null = data?.filter((record) => {
+      const recordDate:any|null = new Date(record.date);
       return (
       record.status === "present" &&
       recordDate.getMonth() === currentmonth &&
