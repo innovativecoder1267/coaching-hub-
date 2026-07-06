@@ -203,7 +203,7 @@ export default function Students() {
             </thead>
             <tbody>
             
-              {filteredStudents.map((student) => (
+              {filteredStudents.map((student:any) => (
                 <tr
                   key={student.id}
                   className="border-b border-slate-200 hover:bg-slate-50 transition-colors"
