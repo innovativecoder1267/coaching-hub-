@@ -12,7 +12,7 @@ const supabase = createClient()
 
   const router = useRouter()
   const {showToast}=useToast();
-  const handleSignup = async (e) => {
+  const handleSignup = async (e:any) => {
     e.preventDefault()
     setLoading(true)
 
