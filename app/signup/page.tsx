@@ -13,7 +13,7 @@ export default function SignupPage() {
   const {showToast}=useToast()
   const router = useRouter()
 
-  const handleSignup = async (e) => {
+  const handleSignup = async (e:any) => {
     e.preventDefault()
     setLoading(true)
 
