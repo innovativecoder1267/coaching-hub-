@@ -105,7 +105,7 @@ export default function Fees() {
                   onChange={(e) =>{
                   const selectedname=e.target.value
                   setSelectedStudent(e.target.value)
-                  const foundedstudent=students.find((s)=>
+                  const foundedstudent=students.find((s:any)=>
                    s.name===selectedname
                   )
                   if(foundedstudent){
