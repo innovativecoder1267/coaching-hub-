@@ -32,7 +32,7 @@ export default function Students() {
   const [studentclass,setstudentclass]=useState("")
   const [monthlyFee,setMonthlyFee]=useState("")
   const [admin,setadminid]=useState<string|bigint>()
-  const filteredStudents = fulldata.filter((student)=>{
+  const filteredStudents = fulldata.filter((student:any)=>{
     const query=searchQuery.trim().toLowerCase();
     if(!query)return true;
     return student.name.toLowerCase().includes(query)
