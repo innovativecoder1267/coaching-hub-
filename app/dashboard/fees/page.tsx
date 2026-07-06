@@ -1,7 +1,7 @@
  'use client'
 
 import { useEffect, useState } from 'react'
-import { DollarSign, User, Phone, Mail } from 'lucide-react'
+import { DollarSign, Phone, Mail } from 'lucide-react'
 import { SectionHeader } from '@/app/components/sectionheader'
 import { useToast } from '@/app/context/page'
 
@@ -17,7 +17,7 @@ export default function Fees() {
   const [ownerid,setownerid]=useState<string|any>("")
   const { showToast } = useToast()
   const currentStudent = students.find(
-    (s) => s.name === selectedStudent
+    (s:any) => s.name === selectedStudent
   )
 
   const paymentstatus = [
@@ -115,7 +115,7 @@ export default function Fees() {
                   }}
                   className="w-full px-4 py-2.5 border rounded-lg"
                 >
-                  {students.map((student) => (
+                  {students.map((student:any) => (
                     <option
                       key={student.name}
                       value={student.name}
