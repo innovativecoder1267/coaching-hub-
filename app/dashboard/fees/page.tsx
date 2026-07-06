@@ -1,5 +1,5 @@
- 'use client'
-
+ 
+'use client'
 import { useEffect, useState } from 'react'
 import { DollarSign, Phone, Mail } from 'lucide-react'
 import { SectionHeader } from '@/app/components/sectionheader'
@@ -15,10 +15,16 @@ export default function Fees() {
   const [paymentMethod, setPaymentMethod] = useState('upi')
   const [studentid,setstudentid]=useState()
   const [ownerid,setownerid]=useState<string|any>("")
+  const [pendingPayments, setPendingPayments] = useState<any[]>([]) // NEW
   const { showToast } = useToast()
   const currentStudent = students.find(
     (s:any) => s.name === selectedStudent
   )
+
+  // NEW: total due for the currently selected student
+  const currentStudentDue = pendingPayments
+    .filter((p:any) => p.name === selectedStudent)
+    .reduce((sum:number, p:any) => sum + Number(p.amount || 0), 0)
 
   const paymentstatus = [
     { label: 'Paid'},
@@ -29,6 +35,20 @@ export default function Fees() {
     e.preventDefault()
     Submitfees()
   }
+  useEffect(() => {
+    async function fetchPendingPayments() {
+      const {data,error}=await supabase.from("payments").select("name,amount").eq("status","Pending")
+      if(error){
+        console.log("SUPABASE ERROR:", error);
+        return
+      }
+      console.log("Data from the current month is",data)
+      setPendingPayments(data || []) // NEW: store in state
+    }
+    fetchPendingPayments();
+  },[])
+
+
     useEffect(()=>{
     async function fetchowner(){
       const {data,error}=await supabase.auth.getUser();
@@ -42,7 +62,8 @@ export default function Fees() {
   },[])
   async function Submitfees() {
        const {data,error}=await supabase.from("payments").insert({
-         amount,
+        name:selectedStudent,
+        amount,
         method:paymentMethod,
         owner_id:ownerid,
         status,
@@ -61,6 +82,15 @@ export default function Fees() {
       if(activityError){
         console.error("Error recording activity:",activityError)
       }
+
+    // OPTIONAL: refresh pending payments after a new submission
+    const { data: refreshed, error: refreshError } = await supabase
+      .from("payments")
+      .select("name,amount")
+      .eq("status", "Pending")
+    if (!refreshError) {
+      setPendingPayments(refreshed || [])
+    }
   }
 
   useEffect(() => {
@@ -71,6 +101,7 @@ export default function Fees() {
       if(error){
         console.log("SUPABASE ERROR:", error);
      }
+     console.log("Fetched students:", data);
      setstudents(data)
       } catch (error) {
         console.error('Error fetching students:', error)
@@ -219,10 +250,10 @@ export default function Fees() {
                 <strong>Name:</strong> {currentStudent.name}
               </p>
               <p>
-                <strong>Class:</strong> {currentStudent.class}
+                <strong>Class:</strong> {currentStudent.studentclass}
               </p>
               <p>
-                <strong>Due:</strong> {currentStudent.due}
+                <strong>Due:</strong> ₹{currentStudentDue}
               </p>
 
               <div className="flex items-center gap-2">
@@ -232,7 +263,7 @@ export default function Fees() {
 
               <div className="flex items-center gap-2">
                 <Mail size={16} />
-                <span>student@email.com</span>
+                <span>{currentStudent.email}</span>
               </div>
             </div>
           </div>
