@@ -13,7 +13,7 @@ export default function SignupPage() {
   const {showToast}=useToast()
   const router = useRouter()
 
-  const handleSignup = async (e:any) => {
+  const handleSignup = async (e) => {
     e.preventDefault()
     setLoading(true)
 
@@ -21,9 +21,11 @@ export default function SignupPage() {
       email,
       password,
       options:{
+      emailRedirectTo: "http://localhost:3000/onboardingflow",
         data:{
          username
-        }
+        },
+        
       }
     })
     if (error) {
@@ -34,7 +36,7 @@ export default function SignupPage() {
     }
     console.log("Signup successful:", data)
 
-    router.push("/onboardingflow")
+    router.push("/verifypage")
     setLoading(false)
   }
 
