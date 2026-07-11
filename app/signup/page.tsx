@@ -21,7 +21,7 @@ export default function SignupPage() {
       email,
       password,
       options:{
-      emailRedirectTo: "https://coaching-e52lyqem2-innovativecoder1267s-projects.vercel.app/onboardingflow",
+        emailRedirectTo: "https://coaching-5d43413ny-innovativecoder1267s-projects.vercel.app/onboardingflow",
         data:{
          username
         },
