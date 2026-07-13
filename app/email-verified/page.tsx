@@ -51,7 +51,7 @@ export default function EmailVerifiedPage() {
 
         {/* Button */}
         <button
-          onClick={() => router.push("/onboardingflow")}
+          onClick={() => router.push("/login")}
           className="mt-8 w-full rounded-xl bg-black py-3 font-semibold text-white transition hover:bg-gray-800"
         >
           Continue to Login
