@@ -28,7 +28,7 @@ const supabase = createClient()
     }
     console.log("Session:", data.session)
     showToast("success","Logged in successfully!")
-    router.push("/dashboard")
+    router.push("/onboardingflow")
     setLoading(false)
   }
 
