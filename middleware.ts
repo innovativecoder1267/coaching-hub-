@@ -32,9 +32,9 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 
-  // if (user && isLoginPage) {
-  //   return NextResponse.redirect(new URL('/dashboard', request.url))
-  // }
+  if (user && isLoginPage) {
+    return NextResponse.redirect(new URL('/dashboard', request.url))
+  }
   if(onboardingflow){
         return NextResponse.redirect(new URL('/dashboard', request.url))
 
