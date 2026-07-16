@@ -263,10 +263,10 @@ export default function Fees() {
 
               <div className="flex items-center gap-2">
                 <Mail size={16} />
-                <strong>Subject:</strong> ₹{currentStudent.subject}
+                <strong>email:</strong> ₹{currentStudent.email}
               </div>
                 <div className="flex items-center gap-2">
-                <span>{currentStudent.subject}</span>
+                <strong>Subject:</strong> ₹{currentStudent.subject}
               </div>
             </div>
           </div>
