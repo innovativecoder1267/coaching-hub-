@@ -265,6 +265,9 @@ export default function Fees() {
                 <Mail size={16} />
                 <span>{currentStudent.email}</span>
               </div>
+                <div className="flex items-center gap-2">
+                <span>{currentStudent.subject}</span>
+              </div>
             </div>
           </div>
         )}
