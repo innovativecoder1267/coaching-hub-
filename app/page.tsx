@@ -15,10 +15,7 @@ export default function LandingsPage() {
         </h1>
 
         <div className="flex items-center gap-8">
-          <Link href="#" className="text-gray-600 hover:text-blue-600 transition">Home</Link>
-          <Link href="#" className="text-gray-600 hover:text-blue-600 transition">Features</Link>
-          <Link href="#" className="text-gray-600 hover:text-blue-600 transition">Contact</Link>
-
+          <Link href="/login" className="text-gray-600 hover:text-blue-600 transition">Home</Link>
           <Link href="/login">
             <button className="px-4 py-2 rounded-xl border border-gray-200 hover:bg-gray-100 transition">
               Login
@@ -51,13 +48,11 @@ export default function LandingsPage() {
           </p>
 
           <div className="flex gap-4">
+             <Link href="/signup">
             <button className="px-7 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow-xl hover:scale-105 transition">
               Get Started
             </button>
-
-            <button className="px-7 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 transition">
-              Demo
-            </button>
+             </Link>
           </div>
         </div>
 
